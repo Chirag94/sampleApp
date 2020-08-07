@@ -1,5 +1,5 @@
 function getBids(){
-	Promise.resolve(axios.get('https://headerbiddersample1.herokuapp.com/showbids')).then(
+	Promise.resolve(axios.get('http://headerbiddersample1.herokuapp.com/showbids')).then(
 	function(res){
 		res.data.sort(compare);
 		document.getElementById('slot1url').href = res.data[0].target;
