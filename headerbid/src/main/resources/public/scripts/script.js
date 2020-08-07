@@ -1,5 +1,5 @@
 function getBids(){
-	Promise.resolve(axios.get('http://localhost:4567/showbids')).then(
+	Promise.resolve(axios.get('http://localhost:8080/showbids')).then(
 	function(res){
 		res.data.sort(compare);
 		document.getElementById('slot1url').href = res.data[0].target;
