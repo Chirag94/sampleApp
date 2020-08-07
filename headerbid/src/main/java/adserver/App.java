@@ -13,11 +13,14 @@ public class App {
 	}
 
 	public static void StartSparkServer() {
-		String var =System.getenv("PORT"); 
-		if(var == null || var.isEmpty())
-			port(8080);
-		else
-			port(Integer.parseInt(var));
+		ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            port = 4567;
+        }
+        port(port);
 		staticFiles.location("/public");
 		AdBookService.initialise();
 		Gson gson = new Gson();
